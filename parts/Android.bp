@@ -11,10 +11,12 @@ android_app {
     resource_dirs: ["res"],
     certificate: "platform",
     platform_apis: true,
+    system_ext_specific: true,
     privileged: true,
 
     static_libs: [
         "org.lineageos.settings.resources",
+        "//hardware/xiaomi:vendor.xiaomi.hardware.motor-V1.0-java",
     ],
 
     optimize: {

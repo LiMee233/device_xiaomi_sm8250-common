@@ -6,6 +6,25 @@
 
 COMMON_PATH := device/xiaomi/sm8250-common
 
+# A/B
+ifeq ($(TARGET_IS_VAB),true)
+BOARD_USES_RECOVERY_AS_BOOT := true
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
+AB_OTA_UPDATER := true
+
+AB_OTA_PARTITIONS += \
+    boot \
+    dtbo \
+    odm \
+    product \
+    system \
+    system_ext \
+    vbmeta \
+    vbmeta_system \
+    vendor \
+    vendor_boot
+endif
+
 # APEX
 DEXPREOPT_GENERATE_APEX_IMAGE := true
 
@@ -74,8 +93,6 @@ TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
 
 # Fingerprint
 ifeq ($(TARGET_HAS_FOD),true)
-SOONG_CONFIG_NAMESPACES += XIAOMI_KONA_FOD
-SOONG_CONFIG_XIAOMI_KONA_FOD := POS_X POS_Y SIZE
 TARGET_SURFACEFLINGER_FOD_LIB := //$(COMMON_PATH):libfod_extension.xiaomi_kona
 endif
 
