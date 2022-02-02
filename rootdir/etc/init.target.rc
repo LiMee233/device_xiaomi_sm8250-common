@@ -166,6 +166,10 @@ on boot
 on property:persist.vendor.sys.fp.fod.large_field=1
     write sys/bus/i2c/devices/3-0049/fod_area 1
 
+on property:sys.boot_completed=1
+    # ZRAM configuration
+    swapon_all /vendor/etc/fstab.qcom
+
 on boot && property:persist.vendor.usb.controller.default=*
     setprop vendor.usb.controller ${persist.vendor.usb.controller.default}
 
