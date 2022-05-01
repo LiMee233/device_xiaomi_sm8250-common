@@ -8,6 +8,7 @@ cc_library_static {
     name: "libinit_xiaomi_kona",
     srcs: [
         "libinit_dalvik_heap.cpp",
+        "libinit_flavor.cpp",
         "libinit_variant.cpp",
         "libinit_utils.cpp",
     ],
