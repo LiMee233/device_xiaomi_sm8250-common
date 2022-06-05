@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/keep_wechat_alive_title">
+
+    <com.android.settingslib.widget.MainSwitchPreference
+        android:defaultValue="false"
+        android:key="wechat_foreground_service_enable"
+        android:title="@string/wechat_foreground_service_enable_title" />
+
+    <com.android.settingslib.widget.FooterPreference
+        android:key="keep_wechat_alive_footer"
+        android:selectable="false"
+        android:title="@string/keep_wechat_alive_footer_summary" />
+
+</PreferenceScreen>
