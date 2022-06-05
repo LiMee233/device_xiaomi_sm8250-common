@@ -61,8 +61,6 @@ BiometricsFingerprint *BiometricsFingerprint::sInstance = nullptr;
 
 #define FOD_UI_PATH "/sys/devices/platform/soc/soc:qcom,dsi-display-primary/fod_ui"
 
-#define TOUCH_FOD_ENABLE 10
-
 static bool readBool(int fd) {
     char c;
     int rc;
@@ -121,7 +119,6 @@ BiometricsFingerprint::BiometricsFingerprint() : mClientCallback(nullptr), mDevi
             }
         }).detach();
     }
-    mTouchFeatureService = ITouchFeature::getService();
 }
 
 BiometricsFingerprint::~BiometricsFingerprint() {
@@ -439,12 +436,10 @@ Return<bool> BiometricsFingerprint::isUdfps(uint32_t /*sensorId*/) {
 
 Return<void> BiometricsFingerprint::onFingerDown(uint32_t /*x*/, uint32_t /*y*/,
         float /*minor*/, float /*major*/) {
-    mTouchFeatureService->setTouchMode(TOUCH_FOD_ENABLE, 1);
     return Void();
 }
 
 Return<void> BiometricsFingerprint::onFingerUp() {
-    mTouchFeatureService->resetTouchMode(TOUCH_FOD_ENABLE);
     return Void();
 }
 
