@@ -185,10 +185,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libstdc++.vendor
 
-# Camera motor
-PRODUCT_PACKAGES += \
-    vendor.xiaomi.hardware.motor@1.0.vendor
-
 # Configstore
 PRODUCT_PACKAGES += \
     disable_configstore
@@ -411,7 +407,6 @@ PRODUCT_PACKAGES += \
     init.qti.dcvs.sh
 
 PRODUCT_PACKAGES += \
-    init.motor.rc \
     init.nfc.rc \
     init.qcom.power.rc \
     init.qcom.rc \
